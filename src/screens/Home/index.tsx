@@ -51,7 +51,7 @@ export function Home() {
       <Box>
         <Feather name="shopping-cart" size={24} color="#000" />
         <Text>
-          {data.length} Produtos | Total R$ {total}
+          {data.length} Produtos | Total R$ {total.toFixed(2)}
         </Text>
       </Box>
 
@@ -59,7 +59,7 @@ export function Home() {
         <FlatList
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 100 }}
+          contentContainerStyle={{ paddingBottom: 300 }}
           ListEmptyComponent={() => <Text>Nenhum produto adicionado</Text>}
           style={{ width: "100%", height: "100%", padding: 10 }}
           data={data}
