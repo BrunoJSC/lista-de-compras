@@ -12,18 +12,30 @@ interface CardProps {
 
 export function Card({ onPress, name, quantity, price }: CardProps) {
   return (
-    <Container>
-      <Box>
-        <Title>{name}</Title>
-        <View>
-          <Value>Qto: {quantity}</Value>
-          <TextPrice>R$: {price}</TextPrice>
+    <Container style={{ flexDirection: "column" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          width: "100%",
+          justifyContent: "space-between",
+        }}
+      >
+        <View style={{ marginHorizontal: 10 }}>
+          <View style={{ gap: 10 }}>
+            <Title numberOfLines={1}>{name}</Title>
+          </View>
+          <View>
+            <Value>Qto: {quantity}</Value>
+            <TextPrice>R$: {price}</TextPrice>
+          </View>
         </View>
-      </Box>
+      </View>
 
-      <TouchableOpacity onPress={onPress}>
-        <Feather name="trash" size={24} color="#ff0000" />
-      </TouchableOpacity>
+      <View style={{ width: "100%" }}>
+        <TouchableOpacity onPress={onPress} style={{ marginLeft: "auto" }}>
+          <Feather name="trash" size={24} color="#ff0000" />
+        </TouchableOpacity>
+      </View>
     </Container>
   );
 }
